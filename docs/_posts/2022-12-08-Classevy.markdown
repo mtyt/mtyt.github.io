@@ -1,0 +1,49 @@
+---
+layout: post
+title:  "Classevy [kla·suh·vai]: a students-into-classes-divider tool"
+date:   2022-12-08
+categories: jekyll update
+---
+A good friend of mine is a teacher in elementary school and every year she
+faces the same problem: having to divide her students into 2 classes. She wants
+to divide them as evenly as possible based on multiple criteria, like:
+- gender
+- scores on math and spelling
+- whether they need extra attention
+- whether they have a learning (dis)advantage
+- whether they have difficult behavior
+
+On top of that, each student can name 3 other students with whom they'd like to
+be in the same class (and at least 1 of those preferences should be satisfied).
+Furthermore, the teacher can decide that particular students should or should
+not be in the same class together.
+
+Obviously, satisfying those conditions while balancing the other criteria, can
+prove to be a difficult task for a regular human being. Fortunately, there's
+computers.
+
+I initially thought this would be perfect for a Genetic Algorithm to solve.
+I've used GAs in the past to optimize electronic circuits so I'm quite familiar
+with them (and to be honest, I'm not very familiar with any other optimization
+algorithms), so I decided to give it a go.
+
+However, it quickly turned out that brute-force optimizing those hard criteria
+for which students should be in the same class as others, doesn't really work.
+So I had to come up with some way to satisfy those conditions as an additional
+step during the optimization.
+
+The optimization bit, I put in a separate package called `optime`, available on
+[GitHub][optime-gh] and
+[PyPI][optime-pypi].
+The rest is in this package, called `classevy`, available on [GitHub][classevy-gh]. The name of the package refers to my friend.
+I hope she can try it for next school year and I hope her students won't mind
+being guinea pigs in my Python projects.
+
+I invite everyone to try out some examples (there's a Jupyter Notebook to get started) and
+let me know if it works and what could be improved.
+And if you know teachers with the same, or a similar problem, tell them to contact me. I'd be 
+very interested to make the software more general, if there is a need.
+
+[classevy-gh]: https://github.com/mtyt/classevy
+[optime-gh]: https://github.com/mtyt/optime
+[optime-pypi]: https://pypi.org/project/optime/
