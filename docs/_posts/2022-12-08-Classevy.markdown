@@ -3,6 +3,7 @@ layout: post
 title:  "Classevy [kla·suh·vai]: a students-into-classes-divider tool"
 date:   2022-12-08
 categories: python programming teachers
+permalink: /classevy-post/
 ---
 A good friend of mine is a teacher in elementary school and every year she
 faces the same problem: having to divide her students into 2 classes. She wants

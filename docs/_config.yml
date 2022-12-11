@@ -27,6 +27,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 domain: mtyt.github.io
 url: "https://mtyt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mtyt
+linkedin_username: maartentytgat
 
 # Build settings
 theme: minima
