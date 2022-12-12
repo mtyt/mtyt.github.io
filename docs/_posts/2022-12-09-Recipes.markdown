@@ -51,7 +51,7 @@ Which sounds delicious and has the following nutritional value and environmental
 The Notebook allows you to limit the number of ingredients, which will lead to sub-optimal
 but more practical recipes!
 
-See if you can tweak the parameters in the Notebook to get closer to the target nutrional targets at lower environmental impact!
+See if you can tweak the parameters in the Notebook to get closer to the target nutritional targets at lower environmental impact!
 
 Let me know if you have suggestions for improvements. Not on the recipe but on the notebook.
 
