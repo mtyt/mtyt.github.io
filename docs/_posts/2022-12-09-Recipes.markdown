@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Recipes for the Planet"
-date:   2022-12-09
+date:   2022-12-12
 categories: python programming owid climate optimization
 permalink: /recipes/
 ---
@@ -11,20 +11,30 @@ this project?
 
 Anyway, most probably I got a bit carried away after reading this article on Our World in Data:
 [Environmental Impacts of Food Production][owid]. The article compares a number of food
-products based on CO2 emissions, land use, water use, [eutrophication](https://en.wikipedia.org/wiki/Eutrophication)
+products based on CO<sub>2</sub> emissions, land use, water use, [eutrophication](https://en.wikipedia.org/wiki/Eutrophication)
 per kg but also per 100 g of protein, 100 g of fat and per 1000 kcal.
 
 I thought it would be interesting to take this one step further and use this data to create
 'recipes' that would target a certain nutritional value (in terms of kcal, grams of fat,
-grams of protein) but minimizes the environmental impact. This problem seemed perfect
-for a genetic algorithm, et voila: [optime] was born (or, optime was born and then I needed
+grams of protein) but minimize the environmental impact. This problem seemed perfect
+for a genetic algorithm, et voila: [optime] was born (or, optime was laid and then I needed
 something to try it out et voila, this project was born)!
 
-Turns out, no chickens nor eggs in the most optimal recipe, but croissants and onions!
-You may get different results because of the random events - turns out the gods do play dice.
+Turns out, no chickens nor eggs in the most optimal recipe, but pain-au-chocolat and pumpkin seeds!
+You may get different results because of the random events (something with gods and dice).
+
+You can directly open and explore the Notebook in Google Colab here:
+
+ [![colab-badge](https://colab.research.google.com/assets/colab-badge.svg){:width=120}][colab]{:target="_blank"}
+
+Or download it on GitHub [here][gh-nb].
+
+
+Here's a graph of how the optimizer optimized the optimization goals:
 
 ![Genetic Algorithm progress](/assets/img/optime.png)
 
 [optime]: https://github.com/mtyt/optime
 [owid]: https://ourworldindata.org/environmental-impacts-of-food
-
+[colab]: https://colab.research.google.com/github/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
+[gh-nb]: https://github.com/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
