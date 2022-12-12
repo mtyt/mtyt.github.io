@@ -3,7 +3,7 @@ layout: post
 title:  "Recipes for the Planet"
 date:   2022-12-12
 categories: python programming owid climate optimization
-permalink: /recipes/
+permalink: /recipes-post/
 ---
 I'm not sure between this project and [optime], which was the chicken and which the egg.
 Did I just need a guinea pig project to test my optimizer or did I make an optimizer for
@@ -35,7 +35,7 @@ Here's a graph of how the optimizer optimized the optimization goals:
 
 And one of the top recipes:
 
-[![Top recipe](/assets/img/recipe.png)](/assets/img/recipe.png)
+[![Top recipe](/assets/img/recipe.png)](/assets/img/recipe.png)git statu
 
 Which sounds delicious and has the following nutritional value and environmental impact:
 
