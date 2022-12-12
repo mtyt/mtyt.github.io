@@ -16,25 +16,45 @@ per kg but also per 100 g of protein, 100 g of fat and per 1000 kcal.
 
 I thought it would be interesting to take this one step further and use this data to create
 'recipes' that would target a certain nutritional value (in terms of kcal, grams of fat,
-grams of protein) but minimize the environmental impact. This problem seemed perfect
+grams of protein) while  minimizing the environmental impact. This problem seemed perfect
 for a genetic algorithm, et voila: [optime] was born (or, optime was laid and then I needed
-something to try it out et voila, this project was born)!
+something to try it out et voila, this project hatched)!
 
-Turns out, no chickens nor eggs in the most optimal recipe, but pain-au-chocolat and pumpkin seeds!
+Turns out, neither chickens nor eggs in the most optimal recipe, but pain-au-chocolat and pumpkin seeds!
 You may get different results because of the random events (something with gods and dice).
 
 You can directly open and explore the Notebook in Google Colab here:
 
  [![colab-badge](https://colab.research.google.com/assets/colab-badge.svg){:width=120}][colab]{:target="_blank"}
 
-Or download it on GitHub [here][gh-nb].
-
+Or download it on GitHub [here][gh-nb]{:target="_blank"}.
 
 Here's a graph of how the optimizer optimized the optimization goals:
 
-![Genetic Algorithm progress](/assets/img/optime.png)
+[![Genetic Algorithm progress](/assets/img/optime.png)](/assets/img/optime.png)
+
+And one of the top recipes:
+
+[![Top recipe](/assets/img/recipe.png)](/assets/img/recipe.png)
+
+Which sounds delicious and has the following nutritional value and environmental impact:
+
+    kg                      1.052732
+    kcal                 2505.851226
+    g protein              71.942087
+    g fat                  97.814726
+    Emissions               1.226780
+    Land use                2.623058
+    Eutrophication          7.946141
+    Water withdrawals     230.737192
+
+The Notebook allows you to limit the number of ingredients, which will lead to sub-optimal
+but more practical recipes!
+
+Let me know if you have suggestions for improvements. Not on the recipe but on the notebook.
 
 [optime]: https://github.com/mtyt/optime
 [owid]: https://ourworldindata.org/environmental-impacts-of-food
 [colab]: https://colab.research.google.com/github/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
 [gh-nb]: https://github.com/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
+[gh-logo]: /assets/img/GitHub_Logo.png
