@@ -21,8 +21,7 @@
 title: Futile Devices
 email: maarten.tytgat@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Programming projects, probably open-source and most of the time in Python.
-  I'm interested in a bit of data science and automating the boring stuff so we can focus on the fun stuff.
+  open-source programming projects
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: mtyt.github.io
 url: "https://mtyt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
