@@ -22,14 +22,14 @@ and started dividing most of my time between my 1-year old son and a laptop in m
 Now I'm doing some small programming projects that I'm publishing on this site. This way
 I can keep learning, figure out what I like to do and build a portfolio.
 
-I used to have Facebook and Instagram and Twitter and all that but then I decided to quit that stuff. 
-I'm not completely freed from the big tech companies though, because I'm publishing this site and my code repositories on
-[GitHub][github]{:target="_blank"} and for professional reasons, I also have a [LinkedIn profile][linkedin]{:target="_blank"}.
-And of course there is my gmail address [maarten.tytgat@gmail.com](mailto:maarten.tytgat@gmail.com).
-But hey, one step at a time, right! So I have [Mastodon][mastodon]{:target="_blank"} as well.
+I'm interested in data science, Python, scripting, data visualization, sustainability, clean energy, mobility and AI (that's right, all the buzz words!),
+but also philosphy, music, history, biology, ethics, physics and politics (all the ics and y's).
+
 
 I'm also a musician altough I have to admit, a less active one than my 25-year-old self would find okay.
 Anyway, some of my (old) music is on [Spotify][spotify]{:target="_blank"} and [Soundcloud][soundcloud]{:target="_blank"}.
+
+Currently I'm contemplating on what to do next and if you think you can help me with that, I'd love to hear from you!
 
 <br>
 
