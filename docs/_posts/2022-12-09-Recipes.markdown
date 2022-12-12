@@ -35,7 +35,7 @@ Here's a graph of how the optimizer optimized the optimization goals:
 
 And one of the top recipes:
 
-[![Top recipe](/assets/img/recipe.png)](/assets/img/recipe.png)git statu
+[![Top recipe](/assets/img/recipe.png)](/assets/img/recipe.png)
 
 Which sounds delicious and has the following nutritional value and environmental impact:
 
