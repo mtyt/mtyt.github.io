@@ -27,13 +27,15 @@ domain: mtyt.github.io
 url: "https://mtyt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mtyt
 linkedin_username: maartentytgat
-mastodon_username: mtytgat
-mastodon_instance: floss.social
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
+
+mastodon:
+ - username: mtytgat
+   instance: floss.social
 
 # Exclude from processing.
 # The following items will not be processed, by default.
