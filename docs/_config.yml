@@ -27,6 +27,8 @@ domain: mtyt.github.io
 url: "https://mtyt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mtyt
 linkedin_username: maartentytgat
+mastodon_username: mtytgat
+mastodon_instance: floss.social
 
 # Build settings
 theme: minima
