@@ -1,0 +1,74 @@
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Game of Life</title>
+    <link href="/styles/game.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="controls" id="controls">
+            <button type="button" id="play_pause">PLAY</button>
+            <button type="button" id="step">STEP</button>
+            <div>
+                <label class="slider_label" id="speed_label" for="speed">Speed:</label>
+                <br>
+                <input class="slider" type="range" id="speed" name="speed" min="-10" max="20" value="0"
+                    autocomplete="off">
+            </div>
+            <div>
+                <label class="slider_label" id="canvas_size_label" for="canvas_size">Size:</label>
+                <br>
+                <input class="slider" type="range" min="64" max="1024" value="640" step="64" class="slider"
+                    id="canvas_size">
+            </div>
+            <div>
+                <label class="slider_label" id="grid_num_label" for="grid_num">Number of cells:</label>
+                <br>
+                <input class="slider" type="range" min="8" max="128" value="32" step="8" class="slider" id="grid_num">
+            </div>
+            <div>
+                <label class="inputs" for="random_seed">Random seed:</label>
+                <br>
+                <input type="text" id="random_seed" name="random_seed" value="25" autocomplete="off" size="3"> %
+                <input type="button" value="Go!" id="random_seed_submit">
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Presets</button>
+                <div class="dropdown-content">
+                    <p id="r-pentomino">R-pentomino</p>
+                    <p id="glider">glider</p>
+                    <p id="toad">toad</p>
+                    <p id="pulsar">pulsar</p>
+                    <p id="lwss">Light-weight spaceship</p>
+                    <p id="ggg">Gosper Glider Gun</p>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <canvas id="myCanvas" width="640" height="640"></canvas>
+        </div>
+        <div class="item" id="instructions">
+        <h1>Instructions</h1>
+        Draw live cells by clicking. Hit Play or press space-bar to start. Drawing new
+        cells will automatically pause.
+        <br>
+        Game of Life rules are simple:
+        <ul>
+            <li>Live cells with 2 or 3 neighbours survive</li>
+            <li>Dead cells with 3 live neighbours become alive</li>
+            <li> Neighbours are counted as 8 immediately surrounding cells</li>
+        </ul>
+        On this page, you can change the speed using the slider. 1 means 1 update per second. Very high speeds are limited by
+        your computer's number-crunching powers (and admittably, my implementation).
+        The total size of the grid can be changed, as well as the number of grid cells.
+        Use the Random Seed input to generate a random starting pattern with a certain percentage of living cells.
+        The Presets menu can be used to load pre-defined starting patterns.
+    </div>
+    </section>
+    <script src="/scripts/game_of_life.js"></script>
+
+</body>
+
+</html>
