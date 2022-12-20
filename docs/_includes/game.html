@@ -50,22 +50,30 @@
             <canvas id="myCanvas" width="640" height="640"></canvas>
         </div>
         <div class="item" id="instructions">
-        <h1>Instructions</h1>
-        Draw live cells by clicking. Hit Play or press space-bar to start. Drawing new
-        cells will automatically pause.
-        <br>
-        Game of Life rules are simple:
-        <ul>
-            <li>Live cells with 2 or 3 neighbours survive</li>
-            <li>Dead cells with 3 live neighbours become alive</li>
-            <li> Neighbours are counted as 8 immediately surrounding cells</li>
-        </ul>
-        On this page, you can change the speed using the slider. 1 means 1 update per second. Very high speeds are limited by
-        your computer's number-crunching powers (and admittably, my implementation).
-        The total size of the grid can be changed, as well as the number of grid cells.
-        Use the Random Seed input to generate a random starting pattern with a certain percentage of living cells.
-        The Presets menu can be used to load pre-defined starting patterns.
-    </div>
+            <h1>Instructions</h1>
+            You can bring cells to life by clicking (click again to undo). Hit <i>PLAY</i> or press space-bar to start the
+            time.
+            Drawing new cells will automatically pause the game.
+            <br>
+            Game of Life rules are simple:
+            <ul>
+                <li>Alive cells with 2 or 3 neighbours survive, others die</li>
+                <li>Dead cells with 3 living neighbours come to life</li>
+                <li>Neighbours are the 8 immediately surrounding cells</li>
+            </ul>
+            <p>
+                You can change the speed, grid size and number of cells using the sliders. Very high speeds are limited
+                by
+                your computer's number-crunching powers (and admittably, my implementation).
+                Use the <i>Random seed</i> input to generate a random starting pattern with a certain percentage of living
+                cells.
+                The <i>Presets</i> menu can be used to load pre-defined starting patterns.
+            </p>
+            <p>
+                For more details on Conway's Game of Life and inspiration on patterns, see the
+                <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">Wikipedia page</a>.
+            </p>
+        </div>
     </section>
     <script src="/scripts/game_of_life.js"></script>
 
