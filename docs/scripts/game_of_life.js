@@ -214,6 +214,9 @@ let grid_slider = document.getElementById("grid_num");
 let grid_label = document.getElementById("grid_num_label");
 let canvas_slider = document.getElementById("canvas_size");
 canvas_slider.max = window.screen.width;
+if (canvas_slider.value > window.screen.width){
+    canvas_slider.value = window.screen.width;
+}
 let canvas_size_label = document.getElementById("canvas_size_label");
 canvas_slider.onchange = function () {
     let old_x_n = grid.x_n
