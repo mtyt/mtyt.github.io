@@ -62,13 +62,13 @@ canvas {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left:0;
-    bottom: 50px;
+    bottom: 0px;
 }
 
 /* Links inside the dropdown */
 .dropdown-content p {
     color: black;
-    padding: 12px 16px;
+    padding: 4px 6px;
     text-decoration: none;
     display: block;
 }

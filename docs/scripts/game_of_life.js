@@ -208,12 +208,16 @@ function auto_run() {
 let grid_slider = document.getElementById("grid_num");
 let grid_label = document.getElementById("grid_num_label");
 let canvas_slider = document.getElementById("canvas_size");
+canvas_slider.max = window.screen.width;
 let canvas_size_label = document.getElementById("canvas_size_label");
-canvas_slider.oninput = function () {
+canvas_slider.onchange = function () {
     let old_x_n = grid.x_n
+    let old_active_cells = grid.active_cells;
     canvas.width = this.value;
     canvas.height = this.value;
     grid = new Grid(old_x_n);
+    grid.active_cells = old_active_cells;
+    grid.draw_cells();
     canvas_size_label.innerText = "Size";
     if (this.value < 128) {
         grid_slider.max = this.value
