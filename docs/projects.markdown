@@ -26,6 +26,12 @@ More info can be found in this [post][recipes-post].
 
 Find on GitHub: [Recipes for the Planet][gh-nb]{:target="_blank"}
 
+# Game of Life
+A Conway's Game of Life implementation in JavaScript.
+More info can be found in this [post](/game-of-life-post/).
+
+Direct link to the game: [futiledevices.be/game-of-life][game]
+
 [deap]: https://deap.readthedocs.io/en/master/
 [optime]: https://github.com/mtyt/optime
 [classevy]: https://github.com/mtyt/classevy
@@ -34,3 +40,4 @@ Find on GitHub: [Recipes for the Planet][gh-nb]{:target="_blank"}
 [owid]: https://ourworldindata.org/environmental-impacts-of-food
 [gh-nb]: https://github.com/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
 [recipes-post]: /recipes-post/
+[game]: /game-of-life/

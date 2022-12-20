@@ -166,8 +166,13 @@ class Grid {
 }
 let grid = new Grid(32)
 
-let stepButton = document.querySelector("#step");
-stepButton.addEventListener('click', grid.step.bind(grid), false)
+let stepButton = document.getElementById("step");
+stepButton.addEventListener('click', function (e) {
+    if (running === true) {
+        togglePausePlay();
+    }
+    grid.step()
+}, false)
 
 let ppButton = document.querySelector("#play_pause")
 let running = false
