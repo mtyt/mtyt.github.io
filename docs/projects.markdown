@@ -40,4 +40,4 @@ Direct link to the game: [futiledevices.be/game-of-life][game]
 [owid]: https://ourworldindata.org/environmental-impacts-of-food
 [gh-nb]: https://github.com/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
 [recipes-post]: /recipes-post/
-[game]: /game-of-life/
+[game]: /game-of-life
