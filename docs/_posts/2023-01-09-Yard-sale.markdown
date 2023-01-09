@@ -1,0 +1,43 @@
+---
+layout: post
+title:  "Yard Sale model with borrowing"
+date:   2023-01-09
+categories: python programming capitalism
+permalink: /yard-sale-post/
+---
+
+While browsing Mastodon this weekend, I came across a post linking to [a very nice visualization of the Yard Sale Model][pudding]{:target="_blank"}.
+I had never hear of this model before and I was struck by how such a simple model had such explaining power.
+It is not because everyone has the same chances in life (huge if), that wealth would be automatically distributed
+evenly or that people get rich because they make better decisions. It can be pure luck.
+
+The Yard Sale model shows what would happen if everyone in a group of people starts with the same amount of money, and plays a coin-toss game where everyone has the same chance of winning (50%), and the wager is set to a percentage of the lowest amount of money between 2 players. In the first round, everyone has \$1000 and they play for 20%, so \$200. In the second round, half of the people have \$1200 and the other half have \$800 to start with, so some games will be for \$240 while others will be for \$160. This results in richer people to be able to earn more per game, while it takes poorer people to need more games to earn back their money. It turns out that this automatically leads to extreme wealth concentration in a few rich individuals. And this is just the case where everyone starts out with the same chances!
+
+My wife asked what would happen if people could borrow money to increase their bets even if they have little or no money. Would that give poor people a chance to climb back up?
+
+So I implemented a variation of the model, where the wager is fixed to a percentage of the starting amount. For example if everyone gets \$1000 to start with, and the percentage is 20%, then for every toss, the wager is fixed to \$200, regardless of how much money a person has. If a person has \$0 or less, they 'borrow' money so they can keep playing. Every round, they have to pay their interests, which is calculated as *interest\*money* if *money<0*.
+
+A bankruptcy level must be set, so that when a person has less money than that level, they have to stop playing (otherwise people rack up debts really quickly!)
+
+Note that the borrowing is assumed to happen with money from a bank outside the game, and the interests also go to that bank, so the total amount of money inside the game is not necessarily constant.
+
+The Python Notebook can be found here:
+
+[![colab-badge](https://colab.research.google.com/assets/colab-badge.svg){:width=120}][notebook]{:target="_blank"}
+
+A possible outcome of 3 games after 10 000 rounds looks like this:
+[![Yard Sale model outcome after 10000 rounds](/assets/img/yardsale.png)](/assets/img/yardsale.png)
+
+Clearly, allowing people to borrow money, has the effect of lowering the extreme inequality, but also causes
+a lot of people to go bankrupt. I don't know much about economics, but this doesn't seem ideal to me either.
+
+The [pudding.cool][pudding] web page includes an example with taxes, which seems to improve the situation somewhat.
+So I guess you could say: taxes are good for the vast majority of people. But not so good for a small minority
+that has a lot of influence. Sounds like a complicated balance! It would be good if that majority would
+be well informed and use the democratic process to stabilize the situation...
+
+Any comments and suggestions for a better loan model are welcome!
+
+
+[pudding]: https://pudding.cool/2022/12/yard-sale/
+[notebook]: https://colab.research.google.com/drive/1-MyH0MZR_ibxUWZxA_tItNsaU2VGTC-f?usp=sharing
