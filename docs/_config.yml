@@ -23,8 +23,8 @@ email: maarten.tytgat@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   open-source programming projects
 baseurl: "" # the subpath of your site, e.g. /blog
-domain: mtyt.github.io
-url: "https://mtyt.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+domain: futiledevices.be
+url: "https://www.futiledevices.be" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  mtyt
 linkedin_username: maartentytgat
 
