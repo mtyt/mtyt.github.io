@@ -15,6 +15,8 @@ Find on GitHub: [optime]{:target="_blank"}
 This Python package uses `optime` to divide a number of students into two or more classes,
 based on user-defined criteria. More info can be found in this [post][classevy-post].
 
+Try it yourself on [Google Colab][classevy-colab]{:target="_blank"}
+
 Find on GitHub: [classevy]{:target="_blank"}
 
 # Recipes for the Planet
@@ -41,3 +43,4 @@ Direct link to the game: [futiledevices.be/game-of-life][game]
 [gh-nb]: https://github.com/mtyt/optime/blob/main/examples/Recipes_for_the_planet.ipynb
 [recipes-post]: /recipes-post/
 [game]: /game-of-life
+[classevy-colab]: https://colab.research.google.com/drive/1aDhEEC6j3JnIYbFFF08WmowhVsLVpGOz?usp=sharing
