@@ -15,4 +15,7 @@ run on Google Colab without installing anything! Just some clicking:
 
 [![colab-badge](https://colab.research.google.com/assets/colab-badge.svg){:width=120}][notebook]{:target="_blank"}
 
+Or look at the [formatted output on GitHub][github]{:target="_blank"}
+
 [notebook]: https://colab.research.google.com/github/mtyt/tutorials/blob/main/cached_property.ipynb
+[github]: https://github.com/mtyt/tutorials/blob/main/cached_property.ipynb
