@@ -12,7 +12,7 @@ published: true
 A few months ago, I read [The Alignment Problem][alignment-problem]{:target="_blank"}
 by Brian Christian. It's a very good book about the problem of aligning "AI" behavior with human values.
 I don't explain it as well as he does, but basically it's about
-what can go wrong when you don't define well what you want an AI to achieve.
+what can go wrong if you don't define well what goals you want an AI to achieve.
 
 I feel that too many people think that AI and machine-learning (ML) are
 some kind of magic where computers become alive. I think this is partly
@@ -32,16 +32,16 @@ But in the end it's just simple mathematical functions.
 So then I thought: if it's so simple, then I should be able to do it!
 
 And I found it very interesting to do some experiments with ML in [`pytorch`][pytorch]{:target="_blank"} while reading the book, and noticing the same problems as described in the book.
-My goal was to make a very simple image classification model, based on *Convolutional Neural Networks* (CNN), which could tell me whether an image was John Lennon, or not. Hence the name: **Lennonnet**.
+My goal was to make a very simple image classification model, based on *Convolutional Neural Networks* (CNN), which could tell me whether an image was John Lennon or not. Hence the name: **Lennonnet**.
 
 I did a bit of reading online and it turns out you can just download CNNs and re-train them.
 I combined this with some basic web-scraping to provide my training data.
-After the first training, the results were less than satisfactory. My model just classified any person as `john` and everything else as `not_john`. The reason was probably that my training data contained a lot of pictures of John Lennon and a lot of pictures of random stuff, but not a lot of people.
+After the first training, the results were less than satisfactory. My model just classified any person as `'john'` and everything else as `'not_john'`. The reason was probably that my training data contained a lot of pictures of John Lennon and a lot of pictures of random stuff, but not a lot of people that were not John Lennon.
 So I suppose the NN just recognized if something was a person or not.
-In a second step, I added a lot of pictures of people to the `not_john` training set. That seemed to help.
-Unfortunately, when I input a picture of Paul Mc Cartney into Lennonnet, it still classified it as `john`.
+In a second step, I added a lot of pictures of people to the `'not_john'` training set. That seemed to help.
+Unfortunately, when I input a picture of Paul Mc Cartney into Lennonnet, it still classified it as `'john'`.
 Perhaps they look too much alike (especially in the first years of the Beatles, when they all had the same haircut).
-So then I added a some pictures of the other Beatles in the `not_john` dataset. I don't know if this is cheating and I'm not sure that it helped.
+So then I added a some pictures of the other Beatles in the `'not_john'` dataset. I don't know if this is cheating and I'm not sure that it helped.
 
 ## TL;DR
 I'm using [`pytorch`][pytorch]{:target="_blank"} in this project, combined with [`pytorch-lightning`][pl]{:target="_blank"}, because I had
@@ -57,10 +57,10 @@ bunch of pictures that are most likely not John Lennon
 
 ### Getting the training data
 As outlined in [a previous post][scraping]{:target="_blank"} on web-scraping, I automatically downloaded
-1320 images that I labeled as `john`. I downloaded 11481 images that I labeled as `not_john`.
+1320 images that I labeled as `'john'`. I downloaded 11481 images that I labeled as `'not_john'`.
 Of course you can not just search for "not john lennon please" on Duckduckgo and hope you
 won't get pictures of John Lennon. Quite the opposite in fact! So I put some thought into
-the composition of the `not_john` dataset. I put 100 images of each of the other Beatles
+the composition of the `'not_john'` dataset. I put 100 images of each of the other Beatles
 in the set, hoping that this would teach the model the difference between John and the other
 Beatles. Then I searched for "Person" a thousand times, hoping that this way the model
 will not just classify any person (as opposed to non-persons) as John Lennon. Finally,
@@ -90,8 +90,8 @@ interested!
 ### Testing the model
 During training, we also validate the model each epoch, with in this case, 10% of the data.
 However, the real proof is of course in the pudding. So before running the training, I removed
-100 `john` and 100 `not_john` pictures and kept them for testing the model afterwards.
-In my test, 96 of the `john` and 99 of the `not_john` pictures were classified correctly
+100 `'john'` and 100 `'not_john'` pictures and kept them for testing the model afterwards.
+In my test, 96 of the `'john'` and 99 of the `'not_john'` pictures were classified correctly
 by the model.
 
 You can try out the model yourself in this Colab notebook:
@@ -120,6 +120,8 @@ there's a lot to be optimized.
 Clearly, I'm not a machine-learning expert (yet!) but it was quite satisfying to get some
 results quite quickly. If anything, I learned a bit more about how neural networks work,
 and what are some of the problems and difficulties.
+
+If you also want to learn about AI and ML an neural networks, don't bother, computers will replace you soon enough!
 
 [alignment-problem]: https://brianchristian.org/the-alignment-problem/
 [timm-tut]: https://towardsdatascience.com/getting-started-with-pytorch-image-models-timm-a-practitioners-guide-4e77b4bf9055
