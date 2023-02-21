@@ -42,6 +42,67 @@ So then I added a bunch of pictures of the other Beatles in the Not John dataset
 
 I don't know if this is cheating. But I had some fun doing this and I learned a lot. At least my model seems to know that a potato is not John Lennon.
 
+The steps I took to train and test the model are the following:
+1. Use web-scraping to download the training data: a bunch of John Lennon pictures and a
+bunch of pictures that are most likely not John Lennon.
+2. Re-train an existing CNN for 32 epochs to classify images
+3. Test the model on 100 John and 100 not-John images that weren't used during training or validation
+
+## Getting the training data
+As outlined in [a previous post][scraping] on web-scraping, I automatically downloaded
+1320 images that I labeled as 'john' (but I didn't check all of them so perhaps) I fed 
+the wrong data to my model. I downloaded 11481 images that I labeled as 'not_john'.
+Of course you can not just search for "not john lennon please" on Duckduckgo and hope you
+won't get pictures of John Lennon. Quite the oppisite in fact! So I put some thought in
+the composition of the 'not_john' dataset. I put 100 images of each of the other Beatles
+in the set, hoping that this would teach the model the difference between John and the other
+Beatles. Then I searched for "Person" a thousand times, hoping that this way the model
+will not just classify any person (as opposed to non-persons) as John Lennon. Finally,
+I used a website to generate 100 random words and I downloaded about 100 images for each word.
+
+## Re-train a ResNet-50d model
+I've used pytorch-lightning because I had learned about it in [this course on pytorch by
+Full Stack Deep Learning][fsdl]. I combined it with bits of code that I copied from this
+[lengthy tutorial on how to use timm][timm].
+Ultimately, I trained the model for 32 'epochs' - so basically passing all the training data
+through the model 32 times, each time hopefully improving the performance. Using TensorBoard,
+I could track the training and validation loss. Training loss reflects how well each image
+is being categorized during training, and validation loss is the same but for the validation
+data, i.e. just after the training step, it evaluated how well the model does on data it hasn't
+seen yet. If all goes well, both curves should go down. If the training loss is really
+low, but the validation loss is high, this typically means you've overfitted the model.
+In this case it would mean that it can perfectly say that an image is John Lennon if it was
+part of the training set, but not if it wasn't. So in fact it's just like keeping a record
+of all the training images and saying: this is John Lennon (or not). It's like learning by heart
+that 2x2 = 4 but not having a clue what 2x3 would be.
+
+[![TensorBoard screenshot](/assets/img/tensorboard.png)]
+
+Putting all the code here would be too much, so I moved it to [another page][lennonnet-code], in case you're
+interested!
+
+## Testing the model
+During training, we also validate the model each epoch, with in this case, 10% of the data.
+However, the real proof is of course in the pudding. So before running the training, I removed
+100 John Lennon and 100 non-John Lennon pictures and kept them for testing the model afterwards.
+In my test, 96 of the John Lennon and 99 of the not-John pictures were classified correctly
+by the model.
+
+You can try out the model yourself in this Colab notebook:
+
+[![colab-badge](https://colab.research.google.com/assets/colab-badge.svg){:width=120}][colab]{:target="_blank"}
+
+It's pre-loaded with an example of a John picture and a potato and of course it classifies
+both of them correctly:
+
+[![Colab screenshot](/assets/img/john_potato.png)]
+
+
+
 [alignment-problem]: https://wwww.google.com
-[timm]
-[pytorch]
+[timm]: https://towardsdatascience.com/getting-started-with-pytorch-image-models-timm-a-practitioners-guide-4e77b4bf9055
+[pytorch]: https://pytorch.org/
+[scraping]: /webscraping-post/
+[fsdl]: https://github.com/full-stack-deep-learning/fsdl-text-recognizer-2022-labs
+[lennonnet-code]: /lennonnet_training
+[colab]: https://colab.research.google.com/drive/1Dc7eevG74o05V3uj3MaDQJDfCjiAGTUZ?usp=sharing
