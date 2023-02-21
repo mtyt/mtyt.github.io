@@ -5,6 +5,9 @@ date:   2023-02-21
 categories: python programming machine-learning pytorch
 permalink: /lennonnet-post/
 published: true
+image:
+  path: /assets/img/john_potato.png
+
 ---
 
 (If you don't want to read about books and personal struggles, skip to the [TL;DR](#tldr))
