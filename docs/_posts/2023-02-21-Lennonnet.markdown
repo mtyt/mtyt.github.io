@@ -6,7 +6,7 @@ categories: python programming machine-learning pytorch
 permalink: /lennonnet-post/
 published: true
 image:
-  path: /assets/img/john_potato.png
+  path: /assets/img/potato.png
 
 ---
 
