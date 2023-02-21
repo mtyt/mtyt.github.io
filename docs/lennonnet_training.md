@@ -1,9 +1,8 @@
 ---
-layout: simple
-title: Game of Life
+layout: page
+title: Training Lennonnet in pytorch
 exclude: true
 ---
-
 The code below is what I used to load the image classification model, modify it to my
 needs and train it. Note that this is quite case and machine-specific, so I would not
 recommend to copy-paste and run it just like that.
@@ -31,13 +30,16 @@ training_dir = 'images/training_john'
 ```python
 class PersonClassifier(pl.LightningModule):
     def __init__(self,lr=1e-3,n_classes=2):
-        """Define our Model as a subclass of a LightningModule from Pytorch-Lightning.
+        """Define our Model as a subclass of a LightningModule from
+        Pytorch-Lightning.
         Load the model from the timm library. RESNET50D seemed pretty good.
         """
         super().__init__()
         self.lr = lr
         self.save_hyperparameters()
-        self.model = timm.create_model('resnet50d', pretrained=False, num_classes=n_classes)
+        self.model = timm.create_model('resnet50d',
+                                        pretrained=False,
+                                        num_classes=n_classes)
 
     def configure_optimizers(self):
         opt= torch.optim.RMSprop(self.model.parameters(), self.lr)
@@ -67,7 +69,7 @@ model = PersonClassifier()
 # optional: use Tensor Board as a logger to check the progress of the training:
 tb_logger = pl.loggers.TensorBoardLogger(save_dir="runs", log_graph=True)
 # set up a checkpoint callback so we can keep the best-performing version:
-checkpoint_callback = pl.callbacks.ModelCheckpoint(dirpath="lennonnet_checkpoints",
+ckpt_callback = pl.callbacks.ModelCheckpoint(dirpath="lennonnet_checkpoints",
                                                    save_top_k=3,
                                                    monitor="val_loss")
 # define the trainer (this can be very machine-specific!):
@@ -76,7 +78,7 @@ trainer = pl.Trainer(max_epochs=32,
                      accelerator="mps",
                      devices=1,
                      log_every_n_steps=5,
-                     callbacks=[checkpoint_callback])
+                     callbacks=[ckpt_callback])
 ```
 
 ```python
@@ -91,15 +93,22 @@ imgs_dl= DataLoader(imgs, batch_size=32)
 dataset_size = len(imgs)
 dataset_indices = list(range(dataset_size))
 np.random.shuffle(dataset_indices)
-val_split_index = int(np.floor(0.1 * dataset_size)) # use 10% of the data for validation during training
-train_idx, val_idx = dataset_indices[val_split_index:], dataset_indices[:val_split_index]
+# use 10% of the data for validation during training:
+val_split_index = int(np.floor(0.1 * dataset_size))
+train_idx, val_idx = (dataset_indices[val_split_index:],
+                      dataset_indices[:val_split_index])
 train_sampler = SubsetRandomSampler(train_idx)
 val_sampler = SubsetRandomSampler(val_idx)
 
-train_imgs= ImageFolder(training_dir, transform=transform)
-train_dl= DataLoader(train_imgs,batch_size=32,sampler=train_sampler,num_workers=4)
-val_imgs= ImageFolder(training_dir, transform=transform)
-val_dl= DataLoader(val_imgs,batch_size=32,sampler=val_sampler,num_workers=4)
+train_imgs = ImageFolder(training_dir, transform=transform)
+train_dl = DataLoader(train_imgs,
+                     batch_size=32,
+                     sampler=train_sampler,num_workers=4)
+val_imgs = ImageFolder(training_dir, transform=transform)
+val_dl = DataLoader(val_imgs,
+                   batch_size=32,
+                   sampler=val_sampler,
+                   num_workers=4)
 
 mapping = val_imgs.class_to_idx
 model.mapping = mapping
