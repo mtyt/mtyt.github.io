@@ -188,8 +188,8 @@ maybe depending on your Python/Selenium/Firefox version, you may need it.
 pages, explains how to install ChromeDriver if you're using Chrome.
 
 [towards]: https://towardsdatascience.com/image-scraping-with-python-a96feda8af2d
-[www.google.com]: www.google.com
-[www.duckduckgo.com]: www.duckduckgo.com
+[www.google.com]: https://www.google.com
+[www.duckduckgo.com]: https://www.duckduckgo.com
 [venv]: https://docs.python.org/3/library/venv.html
 [find-element]: https://www.selenium.dev/documentation/webdriver/elements/finders/
 [css]: https://www.w3schools.com/cssref/css_selectors.php
