@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "Oddity: a Eurorack Modular Synth Module"
+date:   2023-03-20
+categories: modular eurorack
+permalink: /oddity-post/
+published: true
+---
+
+At the beginning of this year, my friend drew an idea for a [eurorack][wiki]{:target="_blank"} modular synth module
+on the back of a coaster and asked if I could make it. The idea was to take a trigger signal
+(a kind of digital signal which triggers a sound on another module) and to send it to
+one of eight outputs, based on 3 levels of random A/B decisions, where the probability of 
+A/B can be set by a potentiometer. A bit like a [Galton board][galton]{:target="_blank"},
+except that the distribution is uniform if the A/B probability is set to 50% at each decision.
+A module that does one such A/B decision already exists under the name of a Bernoulli Gate.
+However, we would need 7 such Bernoulli gates (1+2+4) to end up with 8 outputs.
+I first experimented a bit with 555 timers and flipflops to create one Bernoulli gate,
+but quickly realized I'd need way too many components to make it economical. So in the end
+I decided to go for the microprocessor approach.
+Having never before programmed a microprocessor, but remembering from my student years the 
+Microchip brand, I ordered a few PIC16 controllers with enough analog inputs for the potentiometers
+and enough outputs.
+After struggling a bit in C because of implicit type conversions and the very limited
+memory available on the microprocessor, I finally managed to get it to work. I designed a
+prototype PCB and my friend designed a faceplate, which we also had printed on PCB.
+This is what that first prototype looks like:
+
+[![Duckduckgo Inspect element](/assets/img/oddity-pcb.jpeg)](/assets/img/oddity-pcb.jpeg)
+
+We added two extra features: the possibility to loop the last 2-8 or 16 steps, and a toggle
+switch to change
+the first A/B switch into a  split, enabling two groups of four outputs.
+
+It was really cool to go from breadboard experiments with some basic components, to
+programming and simulating the idea in C and then see it work for real on the prototype.
+Although I have to say that the MPLAB software to program the microcontroller is quite buggy.
+I'm wondering if there are better alternatives out there.
+
+This is a very short demonstration of the module:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ua8h6-mFC-s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+The module is perfect for adding some randomness to your music, and is very intuitive to use.
+If you're into modular synths and would like to know more about this module, don't hesitate
+to reach out!
+
+[wiki]: https://en.wikipedia.org/wiki/Eurorack
+[galton]: https://en.wikipedia.org/wiki/Galton_board
