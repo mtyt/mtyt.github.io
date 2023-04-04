@@ -26,7 +26,7 @@ memory available on the microprocessor, I finally managed to get it to work. I d
 prototype PCB and my friend designed a faceplate, which we also had printed on PCB.
 This is what that first prototype looks like:
 
-[![Duckduckgo Inspect element](/assets/img/oddity-pcb.jpeg)](/assets/img/oddity-pcb.jpeg)
+[![Oddity PCB](/assets/img/oddity-pcb.jpeg)](/assets/img/oddity-pcb.jpeg)
 
 We added two extra features: the possibility to loop the last 2-8 or 16 steps, and a toggle
 switch to change
