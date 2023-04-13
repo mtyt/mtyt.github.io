@@ -11,7 +11,9 @@ Ever since we installed solar panels on our roof, I've been mildly
 obsessed with tracking its power output and our electricity consumption.
 The installation was done at the end
 of September of last year so I have yet to see its 
-full potential! I had three questions I wanted to
+full potential!
+
+I had three questions I wanted to
 answer:
 1. How much of our solar panel output do we consume ourselves?
 2. What part of our total energy consumption is covered by the solar panels?
@@ -20,7 +22,7 @@ answer:
 In order to answer these questions, I needed to
 combine the data from two different sources:
 1. The solar panel power output - from the solar panel
-system intself
+system itself
 2. Our monthly electricity consumption and injection
 into the grid + prices - from our energy bills.
 
@@ -33,32 +35,33 @@ I've added a code snippet below as an example of how to obtain the information
 from the SolarEdge API.
 
 ## Getting data from the energy bill
-At the same time, I've asked our energy provider (Luminus) for monthly bills that reflect
+I've asked our energy provider (Luminus) for monthly bills that reflect
 our true consumption. I don't know how it is in other countries, but here, typically you pay an
 advance (which is probably too high) and the balance is settled once a year. But I preferred
 to know how much we consume, and pay for it, each month. At least in Belgium (or perhaps only Flanders),
 this is possible with some providers, see also [here][maandelijkse-afrekening]{:target="_blank"}.
-So yeah, winters are expensive, but I'm hoping the
-summer will be cheap!
+It took Luminus a while to change to monthly bills, that's why I only have data from January 2023.
+
 Based on these monthly invoices, I used a Python package called [pypdf]{:target="_blank"} to convert the PDF to plain text and then I lifted the
-useful information from that using regular expressions and a lot of patience.
+useful information from that using regular expressions (`re`) and a lot of patience.
+I wanted to split the costs into the parts that are per kWh and the fixed parts, distinguish between
+day and night rates, and between injecting into and drawing from the grid.
 The details of how to parse the PDF and return a
 Pandas dataframe are a bit boring, but you can find
 the [code right here][factuur]{:target="_blank"}.
 A few things to remember if you want to try this yourself:
 - Of course invoices from different providers will
-have different structures, so you'll probably need to rewrite most of the code unless your provider is Luminus (you need the detailed invoice).
+have different structures, so you'll probably need to rewrite most of the code involving regular expressions unless your provider is Luminus (you need the detailed invoice).
 - I don't know if it would work from a yearly bill.
 - pypdf doesn't always extract characters in the unicode you might expect. I lost quite a bit of time until I realized that `'-' == '-'` returned `False` because of that. So best to copy-paste bits of text from the string returned by pypdf if you want to use it in regular expression searches.
 
 ## Putting this together
-Anyway, once this hard part is out of the way, the
-interesting part begins.
-By subtracting the injected energy (from the invoice) from the total solar panel output (from the SolarEdge API), you can
+Once the hard part is out of the way, the interesting part begins.
+By subtracting the injected energy from the total solar panel output, you can
 find out how much of your own solar power you consume yourself. Add that to the energy you got from the grid, and you know how much you consumed in total.
 All of this is easily done in pandas. I won't put all
 of the code here because it's rather straighforward
-but probably too specific for our case to be useful.
+but probably too specific for my case to be useful.
 But if you're interested, reach out to me and I'll
 happily share it.
 
@@ -66,22 +69,21 @@ I now have a Jupyter notebook where I just need to
 enter the paths to the monthly bills, and it
 automatically generates the following graphs.
 
-Here's the solar panel output in kWh each month, split by own consumption (blue) and what's injected to the grid (*sold*, orange):
+Here's the solar panel output in kWh each month, split by own consumption (blue) and what's injected into the grid (*sold*, orange):
 
 [![Solar output](/assets/img/solar-production.png)](/assets/img/solar-production.png)
 
 Clearly, as we advance from winter to spring, we get
-more solar power, yay!
+more solar energy, yay!
 
-Here's the electricity consumption split by solar power (blue) and what we've taken from the grid (*bought*, orange):
+Here's the electricity consumption split by solar (blue) and what we've taken from the grid (*bought*, orange):
 
 [![Solar consumption](/assets/img/solar-consumption.png)](/assets/img/solar-consumption.png)
 
-Our energy usage doesn't change too much month-to-month, and of course, February is notoriously short. But the share of solar power increases.
+Our energy usage doesn't change too much month-to-month (and of course, February is notoriously short, hence the dip). But the share of solar energy increases.
 
 The following graph reflects how the solar panels 
-save us money every month (and again, I'm hoping for
-a sunny summer!):
+save us money every month:
 
 [![Solar cost savings](/assets/img/solar-price.png)](/assets/img/solar-price.png)
 
@@ -104,7 +106,11 @@ I don't know about other brands of solar panel inverters, but I assume most of t
 kind of API. If there's an app, they probably have an API. I had to enable the API through the website.
 
 Also: I'm not only interested in the money! But I think it's good to have an idea of my
-own behaviour and how I can optimize my energy consumption. And of course I'm hoping
+own behaviour and how I can optimize my energy consumption. For instance, the fact that
+I'm still injecting electricity into the grid, while I'm not covering all of my consumption
+with solar energy, means there's room to improve my dishwasher schedule!
+
+And of course I'm hoping
 to convince people to invest in renewable energy.
 
 ### Code snippet to obtain solar panel output from SolarEdge API

@@ -21,7 +21,7 @@
 title: Futile Devices
 email: maarten.tytgat@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  open-source programming projects
+  software and hardware projects
 baseurl: "" # the subpath of your site, e.g. /blog
 domain: futiledevices.be
 url: "https://www.futiledevices.be" # the base hostname & protocol for your site, e.g. http://example.com
