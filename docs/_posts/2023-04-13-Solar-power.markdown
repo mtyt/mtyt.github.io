@@ -6,7 +6,7 @@ categories: solar panels PV
 permalink: /solar-power/
 published: true
 ---
-### [updated graphs 2023-07-14]
+### [updated graphs 2023-08-26]
 
 Ever since we installed solar panels on our roof, I've been mildly
 obsessed with tracking its power output and our electricity consumption.
